@@ -141,3 +141,38 @@ class Formik {
 }
 
 Object.prototype.Formik = Formik;
+
+
+let formik = new Formik("#form-add-card", {
+    initialValue: {
+      "input-card-num": "",
+      "input-card-name": "",
+      "input-card-date": "",
+      "input-card-code": "",
+      "input-card-checkbox": "",
+    },
+    rules: {
+      "input-card-num": {
+        required: true,
+        mask: "9999 9999 9999 9999",
+      },
+      "input-card-name": {
+        required: true,
+      },
+      "input-card-date": {
+        required: true,
+        mask: "MM/YY",
+      },
+      "input-card-code": {
+        required: true,
+        mask: "999",
+      },
+      "input-card-checkbox": {
+        required: false,
+      },
+    },
+    onSubmit: (e, values) => {
+      e.preventDefault();
+      console.log(values);
+    },
+  });
